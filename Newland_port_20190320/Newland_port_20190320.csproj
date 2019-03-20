@@ -35,6 +35,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ComLibrary">
+      <HintPath>dll\ComLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalLibrary">
+      <HintPath>dll\DigitalLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="LEDLibrary">
+      <HintPath>dll\LEDLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -49,6 +58,9 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="ZigBeeLibrary">
+      <HintPath>dll\ZigBeeLibrary.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
