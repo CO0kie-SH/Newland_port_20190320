@@ -15,10 +15,15 @@
         <Label x:Name="lbyw" Content="NULL" HorizontalAlignment="Left" Margin="140,155,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lbhy" Content="" HorizontalAlignment="Left" Margin="140,186,0,0" VerticalAlignment="Top" FontSize="26.667"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="24" Margin="140,126,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <Label Content="排风扇：" HorizontalAlignment="Left" Margin="77,230,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lbfs" Content="" HorizontalAlignment="Left" Margin="140,230,0,0" VerticalAlignment="Top" FontSize="26.667"/>
+        <Label Content="照明灯：" HorizontalAlignment="Left" Margin="77,230,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbd" Content="" HorizontalAlignment="Left" Margin="140,230,0,0" VerticalAlignment="Top" FontSize="26.667"/>
         <CheckBox x:Name="checkBox" Content="开启监控" HorizontalAlignment="Left" Margin="140,72,0,0" VerticalAlignment="Top" Click="checkBox_Click"/>
-        <Label x:Name="label" Content="Label" HorizontalAlignment="Left" Margin="318,75,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label" Content="Label" HorizontalAlignment="Left" Margin="303,29,0,0" VerticalAlignment="Top"/>
+        <Label Content="排风扇：" HorizontalAlignment="Left" Margin="202,230,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbfs" Content="" HorizontalAlignment="Left" Margin="265,230,0,0" VerticalAlignment="Top" FontSize="26.667"/>
+        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="348,220,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <Button x:Name="button1" Content="Button" HorizontalAlignment="Left" Margin="354,256,0,0" VerticalAlignment="Top" Width="74" Click="button1_Click"/>
+        <Button x:Name="button2" Content="Button" HorizontalAlignment="Left" Margin="445,250,-3,0" VerticalAlignment="Top" Width="75" Click="button2_Click"/>
 
     </Grid>
 </Window>

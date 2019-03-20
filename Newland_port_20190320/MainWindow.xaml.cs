@@ -51,7 +51,7 @@ namespace Newland_port_20190320
         private void ZigBee_DataReceivedCallback(object sender, ComLibrary.MsgEventArgs e)
         {
             double[] da = new double[4];
-
+            double gz = 0, ljz = 0;
             da[0] = toD(zigBee.IN1Original, "光");
             da[1] = toD(zigBee.IN2Original, "温");
             da[2] = toD(zigBee.IN3Original, "湿");
@@ -61,10 +61,25 @@ namespace Newland_port_20190320
             {
                 s += da[i] + "\n";
             }
+            s += $"灯={of1} now={ofn1}\n";
+            s += $"扇={of2} now={ofn2}\n";
+            Dispatcher.Invoke(new Action(() =>
+            {
+                double.TryParse(textBox.Text, out ljz);
+            }));
+            double.TryParse(zigBee.lightValue, out gz);
+            s += $"光={gz} {ljz}";
+            if(gz>0 && ljz>0 && isA){ of1 = gz < ljz; }
+            
             Dispatcher.Invoke(new Action(() =>
             {
                 lbgz.Content = zigBee.lightValue;
                 label.Content = s;
+                lbd.Content = ofn1 ? "●" : "○";
+                lbfs.Content = ofn2 ? "●" : "○";
+
+                lbhy.Content = !isA ? "null" : adam.DI1 ? "●" : "○";
+                lbyw.Content = !isA ? "null" : adam.DI2 ? "●" : "○";
             }));
         }
 
@@ -100,16 +115,41 @@ namespace Newland_port_20190320
                 Thread.Sleep(1000);
                 if (isA)
                 {
-                    zigBee.GetSet();
+                    adam.SetData();
+                    if (of1 != ofn1)
+                    {
+                        adam.OnOff(of1 ? ADAM4150FuncID.OnDO2 : ADAM4150FuncID.OffDO2);
+                        ofn1 = of1;
+                    }
+                    if (of2 != ofn2)
+                    {
+                        adam.OnOff(of2 ? ADAM4150FuncID.OnDO1 : ADAM4150FuncID.OffDO1);
+                        ofn2 = of2;
+                    }
                 }
                 if (isZ)
                 {
-                    adam.SetData();
+                    zigBee.GetSet();
                 }
             }
         }
 
-        private static bool isRun = true, isA = false, isZ = false, isP = false, nowP = false;
+        private static bool isRun = true, isA = false, isZ = false, of1 = false, ofn1 = false, of2 = false, ofn2 = false;
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            Convert.ToInt32(textBox.Text);
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            of2 = false;
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            of2 = true;
+        }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
@@ -131,13 +171,15 @@ namespace Newland_port_20190320
             {
                 zigBee.Open();
                 isZ = true;
-                //adam.Open();
-                //isA = true;
+                adam.Open();
+                isA = true;
             }
             else
             {
                 isZ = false;
                 zigBee.Close();
+                isA = true;
+                adam.Close();
             }
         }
     }
