@@ -25,6 +25,7 @@ namespace Newland_port_20190320
             InitializeComponent();
         }
 
+        
         private void checkBox_Click(object sender, RoutedEventArgs e)
         {
 
