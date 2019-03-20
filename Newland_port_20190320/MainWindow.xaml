@@ -7,6 +7,17 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <Label Content="光照值：" HorizontalAlignment="Left" Margin="77,93,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbgz" Content="NULL" HorizontalAlignment="Left" Margin="140,93,0,0" VerticalAlignment="Top"/>
+        <Label Content="临界值：" HorizontalAlignment="Left" Margin="77,124,0,0" VerticalAlignment="Top"/>
+        <Label Content="火焰值：" HorizontalAlignment="Left" Margin="77,155,0,0" VerticalAlignment="Top"/>
+        <Label Content="烟雾值：" HorizontalAlignment="Left" Margin="77,186,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbyw" Content="NULL" HorizontalAlignment="Left" Margin="140,155,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbhy" Content="" HorizontalAlignment="Left" Margin="140,186,0,0" VerticalAlignment="Top" FontSize="26.667"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="24" Margin="140,126,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Label Content="排风扇：" HorizontalAlignment="Left" Margin="77,230,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbfs" Content="" HorizontalAlignment="Left" Margin="140,230,0,0" VerticalAlignment="Top" FontSize="26.667"/>
+        <CheckBox x:Name="checkBox" Content="开启监控" HorizontalAlignment="Left" Margin="140,72,0,0" VerticalAlignment="Top" Click="checkBox_Click"/>
+
     </Grid>
 </Window>
